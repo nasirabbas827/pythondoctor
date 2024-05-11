@@ -1,0 +1,28 @@
+{% extends './doctor/base.html' %}
+
+{% block title %}Add Information{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Add Information for Disease</h2>
+    <form method="POST" action="{{ url_for('add_information', disease_id=disease_id) }}">
+        <div class="form-group">
+            <label for="doctor_name">Doctor Name:</label>
+            <input type="text" class="form-control" id="doctor_name" name="doctor_name" required>
+        </div>
+        <div class="form-group">
+            <label for="doctor_advice">Doctor Advice:</label>
+            <textarea class="form-control" id="doctor_advice" name="doctor_advice" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="doctor_phone">Doctor Phone:</label>
+            <input type="text" class="form-control" id="doctor_phone" name="doctor_phone" required>
+        </div>
+        <div class="form-group">
+            <label for="precautions">Precautions:</label>
+            <textarea class="form-control" id="precautions" name="precautions" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

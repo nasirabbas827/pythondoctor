@@ -1,0 +1,28 @@
+{% extends './doctor/base.html' %}
+
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Welcome to Doctor Dashboard</h2>
+    <h3>Diseases</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Disease Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for disease in diseases %}
+            <tr>
+                <td>{{ disease[1] }}</td>
+                <td>
+                    <a href="{{ url_for('add_information', disease_id=disease[0]) }}" class="btn btn-primary">Add Information</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

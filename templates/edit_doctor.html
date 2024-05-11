@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Doctor - {{ doctor[1] }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Edit Doctor</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" value="{{ doctor[1] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ doctor[2] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" value="{{ doctor[3] }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Doctor</button>
+    </form>
+</div>
+{% endblock %}

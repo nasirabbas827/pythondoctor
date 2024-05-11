@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard - Doctors{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Doctors List</h2>
+    <a class="m-3 btn btn-outline-dark float-right" href="/admin/add_doctor">Add Doctor</a>
+
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+            <tr>
+                <td>{{ doctor[0] }}</td>
+                <td>{{ doctor[1] }}</td>
+                <td>{{ doctor[2] }}</td>
+                <td>{{ doctor[3] }}</td>
+                <td>
+                    <a href="/admin/edit_doctor/{{ doctor[0] }}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="/admin/delete_doctor/{{ doctor[0] }}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

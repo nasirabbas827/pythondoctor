@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Diseases{% endblock %}
+
+{% block content %}
+<h1>Search Diseases</h1>
+<form action="/" method="POST">
+    <input class="form-control m-2" type="text" name="search_query" placeholder="Enter Disease Name or Symptoms.....">
+    <button class="btn btn-outline-success float-right" type="submit">Search</button>
+</form>
+{% if recommendations %}
+<h2>Top 5 Recommendations:</h2>
+<table border="1" class="table-dark mb-5">
+    <thead>
+        <tr>
+            <th>Disease Name</th>
+            <th>Symptoms</th>
+            <th>Precautions</th>
+            <th>Doctor Name</th>
+            <th>Doctor Advice</th>
+            <th>Doctor Phone</th>
+            <th>Additional Precautions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for disease in recommendations %}
+        <tr>
+            <td>{{ disease[1] }}</td>
+            <td>{{ disease[2] }}</td>
+            <td>{{ disease[3] }}</td>
+            {% if disease[4] %}
+            <td>{{ disease[4] }}</td>
+            <td>{{ disease[5] }}</td>
+            <td>{{ disease[6] }}</td>
+            <td>{{ disease[7] }}</td>
+            {% else %}
+            <td colspan="4">No relevant information available</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}
